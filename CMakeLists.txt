@@ -83,7 +83,11 @@ endif()
 
 list(TRANSFORM sources PREPEND ${${PROJECT_NAME}_SOURCE_DIR}/${DIR_SRC}/)
 
-add_library(${EXECUTABLE_NAME} SHARED ${sources})
+if (${RECOLLECT_BUILD_DYNAMIC})
+	add_library(${EXECUTABLE_NAME} SHARED ${sources})
+else()
+	add_library(${EXECUTABLE_NAME} STATIC ${sources})
+endif()
 target_include_directories(${EXECUTABLE_NAME} PUBLIC ${${PROJECT_NAME}_SOURCE_DIR}/${DIR_INCLUDE})
 target_include_directories(${EXECUTABLE_NAME} PRIVATE ${${PROJECT_NAME}_SOURCE_DIR}/${DIR_INCLUDE}/${EXECUTABLE_NAME})
 
