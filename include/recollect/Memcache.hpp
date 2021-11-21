@@ -39,7 +39,7 @@ public:
 	void prepend(std::string_view key, std::string_view prefix, uint32_t flags = 0, time_t expiration = 0);
 	void append(std::string_view key, std::string_view suffix, uint32_t flags = 0, time_t expiration = 0);
 
-	void delete_(std::string_view key, time_t expiration = 0);
+	bool delete_(std::string_view key, time_t expiration = 0);
 	bool has(std::string_view key) const;
 
 	void clear(time_t expiration = 0);
