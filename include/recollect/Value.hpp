@@ -15,9 +15,11 @@ struct FreeDeleter {
 };
 
 class Value {
+	friend class Memcache;
 protected:
 	std::unique_ptr<char, FreeDeleter> ptr;
 	size_t size = 0;
+public:
 	uint32_t flags = 0;
 	explicit Value() : ptr{ nullptr, FreeDeleter{} } {}
 	explicit Value(char* ptr, size_t size, uint32_t flags) : ptr{ ptr, FreeDeleter{} }, size{ size }, flags{ flags } {}
