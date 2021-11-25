@@ -30,7 +30,7 @@ public:
 	operator char*() {
 		return ptr.get();
 	}
-	operator char const *() const {
+	operator char const*() const {
 		return ptr.get();
 	}
 	bool operator==(Value const& other) {
