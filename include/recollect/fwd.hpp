@@ -14,6 +14,6 @@ enum class OverwriteBehavior : unsigned char;
 class Memcache;
 class Value;
 
-class Error;
+struct Error;
 
 }  // namespace LIB_RECOLLECT_NAMESPACE
