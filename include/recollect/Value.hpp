@@ -13,7 +13,8 @@ struct FreeDeleter {
 	}
 };
 
-struct Value {
+class Value {
+protected:
 	std::unique_ptr<char, FreeDeleter> ptr;
 	size_t size = 0;
 	uint32_t flags = 0;
